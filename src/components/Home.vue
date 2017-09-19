@@ -13,6 +13,7 @@
               </div>
             </div>
             <div class="w3-container">
+              <p><i class="fa fa-calendar fa-fw w3-margin-right w3-large w3-text-teal"></i>December 8, 1996</p>
               <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>Developer</p>
               <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>Tehran, Iran</p>
               <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>mostafa.najafi1996@gmail.com</p>
