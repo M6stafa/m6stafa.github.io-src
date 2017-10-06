@@ -17,7 +17,6 @@
               <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>Developer</p>
               <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>Tehran, Iran</p>
               <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>mostafa.najafi1996@gmail.com</p>
-              <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>+98 921 390 8780</p>
               <p><i class="fa fa-file fa-fw w3-margin-right w3-large w3-text-teal"></i><a href="/static/files/cv.pdf" target="_blank">download CV</a></p>
               <hr>
 
