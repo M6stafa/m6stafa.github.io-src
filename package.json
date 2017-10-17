@@ -13,8 +13,8 @@
   "dependencies": {
     "d3": "^4.10.2",
     "lodash": "^4.17.4",
-    "vue": "^2.4.2",
-    "vue-router": "^2.7.0"
+    "vue": "^2.5.2",
+    "vue-router": "^3.0.1"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",

@@ -1,4 +1,4 @@
-<template xmlns:https="http://www.w3.org/1999/xhtml">
+<template>
   <div id="home">
   </div>
 </template>
