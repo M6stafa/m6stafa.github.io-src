@@ -26,7 +26,6 @@
         data: [5, 3, 6, 4, 2, 1],
         svg: null,
 
-        transitionDuration: 500,
         circleGap: 10,
         radiusMultiplier: undefined,
       };
