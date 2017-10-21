@@ -1,15 +1,22 @@
 <template>
   <div id="bubble-sort">
+    <h5>Bubble Sort</h5>
     <svg :viewBox="`0 0 ${viewBoxWidth} ${viewBoxHeight}`" preserveAspectRatio="none meet"></svg>
+    <controls
+      :isPaused="isPaused"
+      @togglePlayPause="togglePlayPause"
+      @changeSnapshot="changeSnapshot"
+    ></controls>
   </div>
 </template>
 
 <script>
   import * as d3 from 'd3';
   import _ from 'lodash';
+  import AlgorithmMixin from './Algorithm.mixin';
 
   export default {
-    name: 'av-bubble-sort',
+    mixins: [AlgorithmMixin],
 
     data() {
       return {
@@ -23,34 +30,6 @@
         circleGap: 10,
         radiusMultiplier: undefined,
       };
-    },
-
-    mounted() {
-      // eslint-disable-next-line max-len
-      this.radiusMultiplier = (this.viewBoxWidth - ((this.data.length + 1) * this.circleGap)) / (_.sum(this.data) * 2);
-      this.viewBoxHeight = (_.max(this.data) * 2 * this.radiusMultiplier) + 100;
-
-      this.svg = d3.select('svg');
-      this.svg.attr('viewBox', `0 0 ${this.viewBoxWidth} ${this.viewBoxHeight}`);
-      this.update({
-        step: 0,
-        pointer: 0,
-        data: this.data,
-      });
-
-      const self = this;
-
-      setTimeout(() => {
-        const sort = self.bubbleSort();
-        const interval = setInterval(() => {
-          const res = sort.next();
-          if (res.done) {
-            clearInterval(interval);
-            return;
-          }
-          self.update(res.value);
-        }, self.transitionDuration);
-      }, 1000);
     },
 
     methods: {
@@ -90,7 +69,7 @@
           (2 * prefixSum * this.radiusMultiplier);
       },
 
-      * bubbleSort() {
+      * algorithm() {
         const arr = _.cloneDeep(this.data);
         let step = 0;
         let p = 0; // pointer
@@ -104,13 +83,13 @@
 
             if (arr[p] > arr[p + 1]) {
               [arr[p], arr[p + 1]] = [arr[p + 1], arr[p]]; // swap
-            }
 
-            yield {
-              step,
-              pointer: p,
-              data: _.cloneDeep(arr),
-            };
+              yield {
+                step,
+                pointer: p,
+                data: _.cloneDeep(arr),
+              };
+            }
           }
           yield {
             step: step + 1,
@@ -118,6 +97,23 @@
             data: _.cloneDeep(arr),
           };
         }
+      },
+
+      firstSnapshot() {
+        return {
+          step: 0,
+          pointer: null,
+          data: this.data,
+        };
+      },
+
+      initView() {
+        // eslint-disable-next-line max-len
+        this.radiusMultiplier = (this.viewBoxWidth - ((this.data.length + 1) * this.circleGap)) / (_.sum(this.data) * 2);
+        this.viewBoxHeight = (_.max(this.data) * 2 * this.radiusMultiplier) + 100;
+
+        this.svg = d3.select('svg');
+        this.svg.attr('viewBox', `0 0 ${this.viewBoxWidth} ${this.viewBoxHeight}`);
       },
     },
   };

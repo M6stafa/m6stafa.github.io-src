@@ -19,7 +19,6 @@ const router = new Router({
       component: BaseDV,
       children: [
         {
-          name: 'av_bubble_sort',
           path: 'bubble_sort',
           component: AVBubbleSort,
         },

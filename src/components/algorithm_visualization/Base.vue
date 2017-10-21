@@ -1,7 +1,9 @@
 <template>
-  <div>
-    <div id="monitor">
-      <router-view></router-view>
+  <div class="container">
+    <div class="card">
+      <div class="card-content">
+        <router-view></router-view>
+      </div>
     </div>
   </div>
 </template>
@@ -11,10 +13,3 @@
     name: 'algorithm-visualization-base',
   };
 </script>
-
-<style scoped>
-  #monitor {
-    width: 100%;
-    border: 2px solid red;
-  }
-</style>
