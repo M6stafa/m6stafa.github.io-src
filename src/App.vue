@@ -7,9 +7,6 @@
           <ul class="left hide-on-med-and-down">
             <nav-items></nav-items>
           </ul>
-          <ul class="side-nav" id="mobile-sidenav">
-            <nav-items></nav-items>
-          </ul>
           <ul id="mobile-nav" class="dropdown-content">
             <nav-items></nav-items>
           </ul>
@@ -25,14 +22,12 @@
 import NavItems from '@/components/NavItems';
 
 export default {
-  dependencies: ['$'],
-
   components: {
     'nav-items': NavItems,
   },
 
   mounted() {
-    this.$('.dropdown-button').dropdown();
+    $('.dropdown-button').dropdown(); // eslint-disable-line no-undef
   },
 };
 </script>
