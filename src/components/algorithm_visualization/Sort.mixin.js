@@ -59,12 +59,12 @@ export default {
 
       // Update g
       g.transition()
+        .ease(d3.easeLinear)
         .duration(self.transitionDuration)
         .attr('transform', (d, i) => `translate(${self.step * i}, 0)`);
 
       // Update Rect
       g.select('rect')
-        // .style('stroke', d => self.color(snapshot.isCorrects[d], snapshot.checks[d]))
         .style('fill', d => self.color(snapshot.isCorrects[d], snapshot.checks[d]));
     },
 
@@ -115,7 +115,7 @@ export default {
 
       this.checksColor = [];
       const offsetColor = 250;
-      const stepColor = 15;
+      const stepColor = 5;
       for (let i = 0 + offsetColor; i <= 360 + offsetColor; i += stepColor) {
         this.checksColor.push(`hsl(${i % 360},100%,75%)`);
       }

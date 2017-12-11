@@ -10,6 +10,7 @@
       return {
         name: 'Bitonic Sort',
         numOfValues: 64,
+        transitionDuration: 150,
       };
     },
 

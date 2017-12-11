@@ -17,7 +17,7 @@ export default {
       transitionDuration: 10,
 
       playTransitionDuration: 0,
-      pauseTransitionDuration: 500,
+      pauseTransitionDuration: 250,
     };
   },
 
