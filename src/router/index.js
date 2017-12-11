@@ -5,6 +5,7 @@ import Home from '@/components/Home';
 import BaseAV from '@/components/algorithm_visualization/Base';
 import AVList from '@/components/algorithm_visualization/List';
 import AVBubbleSort from '@/components/algorithm_visualization/BubbleSort';
+import AVBitonicSort from '@/components/algorithm_visualization/BitonicSort';
 
 Vue.use(Router);
 
@@ -21,6 +22,7 @@ const router = new Router({
       children: [
         { path: '', component: AVList },
         { path: 'bubble_sort', component: AVBubbleSort },
+        { path: 'bitonic_sort', component: AVBitonicSort },
       ],
     },
   ],

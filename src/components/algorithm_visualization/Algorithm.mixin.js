@@ -15,11 +15,18 @@ export default {
       isPaused: true,
       playInterval: null,
       transitionDuration: 10,
+
+      playTransitionDuration: 0,
+      pauseTransitionDuration: 500,
     };
   },
 
   created() {
     const self = this;
+
+    self.playTransitionDuration = self.transitionDuration;
+    self.transitionDuration = self.pauseTransitionDuration;
+
     self.randomizeValues();
     self.snapshots.push(this.firstSnapshot());
 
@@ -54,8 +61,10 @@ export default {
 
       if (this.isPaused) {
         clearInterval(this.playInterval);
+        this.transitionDuration = this.pauseTransitionDuration;
       } else {
         const self = this;
+        self.transitionDuration = self.playTransitionDuration;
         this.playInterval = setInterval(() => {
           if (self.cursor < self.snapshots.length - 1) {
             self.cursor += 1;

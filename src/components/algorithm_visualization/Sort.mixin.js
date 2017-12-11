@@ -25,7 +25,7 @@ export default {
       name: 'Fill the name',
 
       viewBoxWidth: 800,
-      viewBoxHeight: 500,
+      viewBoxHeight: 300,
       svg: null,
 
       step: 10,
@@ -54,7 +54,8 @@ export default {
         .append('rect')
         .attr('y', d => self.viewBoxHeight - self.scaleValues(d))
         .attr('width', self.step)
-        .attr('height', d => self.scaleValues(d));
+        .attr('height', d => self.scaleValues(d))
+        .attr('stroke-width', 'none');
 
       // Update g
       g.transition()
@@ -63,7 +64,7 @@ export default {
 
       // Update Rect
       g.select('rect')
-        .style('stroke', d => self.color(snapshot.isCorrects[d], snapshot.checks[d]))
+        // .style('stroke', d => self.color(snapshot.isCorrects[d], snapshot.checks[d]))
         .style('fill', d => self.color(snapshot.isCorrects[d], snapshot.checks[d]));
     },
 
@@ -92,8 +93,6 @@ export default {
     },
 
     randomizeValues() {
-      this.numOfValues = 64;
-
       this.values = Array(this.numOfValues);
       this.isCorrects = Array(this.numOfValues);
       this.checks = Array(this.numOfValues);
@@ -116,10 +115,11 @@ export default {
 
       this.checksColor = [];
       const offsetColor = 250;
-      const stepColor = 30;
+      const stepColor = 15;
       for (let i = 0 + offsetColor; i <= 360 + offsetColor; i += stepColor) {
         this.checksColor.push(`hsl(${i % 360},100%,75%)`);
       }
+      this.checksColor = _.shuffle(this.checksColor);
     },
   },
 };

@@ -9,6 +9,7 @@
     data() {
       return {
         name: 'Bubble Sort',
+        numOfValues: 64,
       };
     },
 
@@ -17,7 +18,7 @@
         const values = _.cloneDeep(this.values);
         const isCorrects = _.cloneDeep(this.isCorrects);
         const initChecks = _.cloneDeep(this.checks);
-        let checks = _.cloneDeep(this.checks);
+        let checks = [];
 
         for (let step = 0; step < values.length; step += 1) {
           for (let p = 0; p < values.length - 1 - step; p += 1) {
