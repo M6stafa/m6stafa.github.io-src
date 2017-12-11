@@ -11,7 +11,7 @@ export default {
     <div id="algovis-sort">
       <h5>{{ name }}</h5>
       <AV-SVG :viewBoxWidth="viewBoxWidth" :viewBoxHeight="viewBoxHeight" />
-      <p>Data generate randomly after each refresh, these stats is for current data:</p>
+      <p>Data generate randomly after each refresh, these stats are for current data:</p>
       <p>number of values: {{ numOfValues }}, number of swaps: {{ numberOfSwaps }}, number of Comparisons: {{ numberOfComparisons }}</p>
       <controls
         :isPaused="isPaused"

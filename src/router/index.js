@@ -6,6 +6,7 @@ import BaseAV from '@/components/algorithm_visualization/Base';
 import AVList from '@/components/algorithm_visualization/List';
 import AVBubbleSort from '@/components/algorithm_visualization/BubbleSort';
 import AVBitonicSort from '@/components/algorithm_visualization/BitonicSort';
+import AVOddEvenSort from '@/components/algorithm_visualization/OddEvenSort';
 
 Vue.use(Router);
 
@@ -23,6 +24,7 @@ const router = new Router({
         { path: '', component: AVList },
         { path: 'bubble_sort', component: AVBubbleSort },
         { path: 'bitonic_sort', component: AVBitonicSort },
+        { path: 'oddeven_sort', component: AVOddEvenSort },
       ],
     },
   ],

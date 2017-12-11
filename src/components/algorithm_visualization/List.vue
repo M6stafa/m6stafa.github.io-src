@@ -14,6 +14,7 @@
     data() {
       return {
         algorithms: [
+          { name: 'Odd-Even Sort', path: 'oddeven_sort' },
           { name: 'Bitonic Sort', path: 'bitonic_sort' },
           { name: 'Bubble Sort', path: 'bubble_sort' },
         ],
