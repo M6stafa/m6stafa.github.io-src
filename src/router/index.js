@@ -16,6 +16,7 @@ const router = new Router({
       path: '/',
       name: 'home',
       component: Home,
+      redirect: '/algovis',
     },
     {
       path: '/algovis',
