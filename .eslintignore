@@ -1,2 +1,6 @@
-build/*.js
-config/*.js
+# Build dir
+/dist
+
+# Don't ignore dot files
+!.eslintrc.js
+!.postcssrc.js

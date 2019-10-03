@@ -1,40 +1,69 @@
-// http://eslint.org/docs/user-guide/configuring
-
 module.exports = {
   root: true,
-  parser: 'babel-eslint',
+
   parserOptions: {
-    sourceType: 'module'
+    parser: 'babel-eslint',
+    sourceType: 'module',
   },
+
   env: {
     browser: true,
   },
-  extends: 'airbnb-base',
+
+  extends: [
+    'airbnb-base',
+    'plugin:vue/recommended',
+    'plugin:import/errors',
+  ],
+
   // required to lint *.vue files
   plugins: [
-    'html'
+    'vue',
   ],
-  // check if imports actually resolve
-  'settings': {
-    'import/resolver': {
-      'webpack': {
-        'config': 'build/webpack.base.conf.js'
-      }
-    }
+
+  globals: {
+    ga: true, // Google Analytics
+    cordova: true,
+    __statics: true,
+    process: true,
   },
+
   // add your custom rules here
-  'rules': {
-    'no-unused-vars': ['error', { 'varsIgnorePattern': '[iI]gnored', 'argsIgnorePattern': '[iI]gnored' }],
-    // don't require .vue extension when importing
-    'import/extensions': ['error', 'always', {
-      'js': 'never',
-      'vue': 'never'
+  rules: {
+    // Import Rules
+    'import/prefer-default-export': 'off',
+    'import/no-extraneous-dependencies': 'off',
+    'import/no-unresolved': 'off',
+
+    // Console Rules
+    // allow console.log during development only
+    'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    // allow debugger during development only
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+
+    // Vue Rules
+    'vue/max-attributes-per-line': ['error', {
+      singleline: 3,
+      multiline: {
+        max: 1,
+        allowFirstLine: false,
+      },
     }],
-    // allow optionalDependencies
-    'import/no-extraneous-dependencies': ['error', {
-      'optionalDependencies': ['test/unit/index.js']
+    'vue/singleline-html-element-content-newline': 'off',
+    'vue/no-v-html': 'off',
+
+    // Other Rules
+    'max-len': ['error', {
+      code: 100,
+      tabWidth: 2,
+      ignoreComments: true,
+      ignoreTrailingComments: true,
+      ignoreUrls: true,
+      ignoreStrings: true,
+      ignoreTemplateLiterals: true,
+      ignoreRegExpLiterals: true,
     }],
-    // allow debugger during development
-    'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0
-  }
-}
+    'no-param-reassign': ['error', { props: false }],
+    'no-unused-vars': ['error', { varsIgnorePattern: '^_', argsIgnorePattern: '^_' }],
+  },
+};

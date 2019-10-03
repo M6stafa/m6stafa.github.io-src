@@ -1,0 +1,32 @@
+@each $header in [h1 h2 h3 h4 h5 h6] {
+  #{$header} {
+    margin-block-start: 8px;
+    margin-block-end: 8px;
+  }
+}
+
+.window-height-min {
+  min-height: 100vh;
+}
+
+@media print {
+  a:visited:not(.q-btn), a:link:not(.q-btn) {
+    color: blue;
+  }
+
+  .not-print {
+    display: none !important;
+  }
+
+  .page-break-before {
+    page-break-before: always;
+  }
+
+  .page-break-after {
+    page-break-after: always;
+  }
+
+  .no-break-inside {
+    page-break-inside: avoid;
+  }
+}
